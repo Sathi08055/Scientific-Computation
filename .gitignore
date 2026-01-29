@@ -1,3 +1,5 @@
 *.log
 Tempfolder/
 .vscode/
+tempCodeRunnerFile.ipynb
+tempCodeRunnerFile.py
