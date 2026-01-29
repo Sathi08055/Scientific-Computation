@@ -1,9 +1,6 @@
 import numpy as np
 import pyvista as pv
 
-# -------------------------------------------------
-# Function and gradients
-# -------------------------------------------------
 
 def f(x, y):
     return 5*x*y*np.exp(-(x**2 + y**2))
@@ -19,9 +16,6 @@ def grad_g(x, y):
     dgdy = 2*(y - 0.3)
     return np.column_stack((dgdx, dgdy, np.zeros_like(x)))
 
-# -------------------------------------------------
-# Surface
-# -------------------------------------------------
 
 x = np.linspace(-2, 2, 50)
 y = np.linspace(-2, 2, 50)
@@ -31,9 +25,6 @@ Z = f(X, Y)
 grid = pv.StructuredGrid(X, Y, Z)
 grid["zvals"] = Z.ravel(order="F")
 
-# -------------------------------------------------
-# Constraint curve
-# -------------------------------------------------
 
 theta = np.linspace(0, 2*np.pi, 100)
 cx = np.cos(theta) + 0.2
@@ -43,14 +34,11 @@ cz = f(cx, cy)
 curve_pts = np.column_stack((cx, cy, cz))
 curve = pv.lines_from_points(curve_pts)
 
-# -------------------------------------------------
-# Gradients along the curve
-# -------------------------------------------------
 
 gf = grad_f(cx, cy)
 gg = grad_g(cx, cy)
 
-# Normalize for clean visualization
+
 gf /= np.linalg.norm(gf, axis=1)[:, None]
 gg /= np.linalg.norm(gg, axis=1)[:, None]
 
@@ -75,10 +63,6 @@ arrows_g = curve_poly.glyph(
     scale=False,
     factor=0.3
 )
-
-# -------------------------------------------------
-# Plot
-# -------------------------------------------------
 
 plotter = pv.Plotter()
 
