@@ -1,23 +1,24 @@
-# Jupyter Notebook checkpoints
+
 .ipynb_checkpoints/
 
-# Python cache
+
 __pycache__/
 *.pyc
 
-# Logs
+
 *.log
 
-# VS Code
+
 .vscode/
 
-# VS Code temp runner files
+
 tempCodeRunnerFile.py
 tempCodeRunnerFile.ipynb
 
-# Windows system files
+
 desktop.ini
 Thumbs.db
 
-# Custom temp folders
-Tempfolder/
+
+0. Tempfolder/
+0. Course Notebooks/
